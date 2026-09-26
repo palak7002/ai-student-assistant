@@ -1,0 +1,188 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hello",
+        "Hey",
+        "Good morning",
+        "Good evening",
+        "Is anyone there?"
+      ],
+      "responses": [
+        "Hello! 👋 How can I help you?",
+        "Hi! I'm your AI Student Assistant. What would you like to know?",
+        "Hey! Ask me anything about your studies."
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Bye",
+        "Goodbye",
+        "See you",
+        "See you later",
+        "I have to go"
+      ],
+      "responses": [
+        "Goodbye! 👋 Keep learning!",
+        "See you later! All the best with your studies!",
+        "Bye! Have a great day!"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thanks",
+        "Thank you",
+        "Thank you so much",
+        "That's helpful",
+        "Thanks for helping"
+      ],
+      "responses": [
+        "You're welcome! 😊",
+        "Happy to help!",
+        "Anytime! Keep learning!"
+      ]
+    },
+    {
+      "tag": "python",
+      "patterns": [
+        "What is Python?",
+        "Tell me about Python",
+        "Why should I learn Python?",
+        "What is Python used for?",
+        "Is Python useful for AI?"
+      ],
+      "responses": [
+        "Python is a popular programming language used in AI, machine learning, data science, automation and web development.",
+        "Python is one of the most popular languages for AI and machine learning because it has many useful libraries."
+      ]
+    },
+    {
+      "tag": "ai",
+      "patterns": [
+        "What is AI?",
+        "What is artificial intelligence?",
+        "Explain AI",
+        "Tell me about artificial intelligence",
+        "What does AI mean?"
+      ],
+      "responses": [
+        "AI stands for Artificial Intelligence. It is a field of computer science that focuses on creating systems that can perform tasks that normally require human intelligence.",
+        "Artificial Intelligence allows computers to learn, reason, recognize patterns and make decisions using data and algorithms."
+      ]
+    },
+    {
+      "tag": "machine_learning",
+      "patterns": [
+        "What is machine learning?",
+        "Explain machine learning",
+        "What is ML?",
+        "Tell me about ML",
+        "How does machine learning work?"
+      ],
+      "responses": [
+        "Machine learning is a part of AI where computers learn patterns from data and use those patterns to make predictions or decisions.",
+        "ML allows computers to learn from examples instead of being explicitly programmed for every situation."
+      ]
+    },
+    {
+      "tag": "dsa",
+      "patterns": [
+        "What is DSA?",
+        "What is data structures and algorithms?",
+        "Why should I learn DSA?",
+        "How should I learn DSA?",
+        "Is DSA important?"
+      ],
+      "responses": [
+        "DSA stands for Data Structures and Algorithms. It helps you solve programming problems efficiently and is useful for technical interviews.",
+        "Start DSA with arrays, strings, linked lists, stacks, queues, trees, graphs, sorting and searching."
+      ]
+    },
+    {
+      "tag": "sql",
+      "patterns": [
+        "What is SQL?",
+        "Why should I learn SQL?",
+        "Explain SQL",
+        "What is database?",
+        "Is SQL important?"
+      ],
+      "responses": [
+        "SQL stands for Structured Query Language. It is used to store, retrieve and manage data in relational databases.",
+        "SQL is an important skill for software development, data analysis, AI and many internship roles."
+      ]
+    },
+    {
+      "tag": "internship",
+      "patterns": [
+        "How can I get an internship?",
+        "Where can I find internships?",
+        "How do I prepare for an internship?",
+        "I want an internship",
+        "What skills do I need for an internship?"
+      ],
+      "responses": [
+        "Build a strong resume, create projects, maintain a GitHub profile and apply regularly to relevant internships.",
+        "For an AI student, focus on Python, SQL, data analysis, machine learning and projects that you can explain confidently."
+      ]
+    },
+    {
+      "tag": "projects",
+      "patterns": [
+        "What projects should I make?",
+        "Give me AI project ideas",
+        "Suggest projects",
+        "What projects are good for students?",
+        "Which projects should I add to my resume?"
+      ],
+      "responses": [
+        "Good beginner projects include an AI chatbot, student performance predictor, movie recommendation system, sentiment analyzer and sales prediction system.",
+        "Choose projects that demonstrate Python, SQL, machine learning and data analysis skills."
+      ]
+    },
+    {
+      "tag": "bca",
+      "patterns": [
+        "What is BCA?",
+        "Tell me about BCA",
+        "What can I do after BCA?",
+        "Is BCA good for AI?",
+        "What is BCA AI?"
+      ],
+      "responses": [
+        "BCA is a Bachelor of Computer Applications degree. Students can build careers in software development, data analytics, AI, web development and other technology fields.",
+        "A BCA student interested in AI can learn Python, SQL, mathematics, statistics, machine learning and data science."
+      ]
+    },
+    {
+      "tag": "study",
+      "patterns": [
+        "How should I study?",
+        "How can I study effectively?",
+        "Give me a study plan",
+        "How do I learn programming?",
+        "I cannot study properly"
+      ],
+      "responses": [
+        "Try studying consistently for 1–2 hours a day, practice what you learn and build small projects alongside your coursework.",
+        "A good approach is Learn → Practice → Build → Revise. Avoid only watching tutorials without writing code."
+      ]
+    },
+    {
+      "tag": "unknown",
+      "patterns": [
+        "random question",
+        "something else",
+        "I don't know what to ask"
+      ],
+      "responses": [
+        "I'm still learning! Try asking me about Python, AI, machine learning, DSA, SQL, internships or student projects.",
+        "I don't have an answer for that yet. Try asking me something related to your studies."
+      ]
+    }
+  ]
+}
