@@ -403,24 +403,6 @@ st.markdown(
     """
     <div class="hero">
 
-        <div class="hero-logo">
-            🤖
-        </div>
-
-        <div class="hero-title">
-            AI Student Assistant
-        </div>
-
-        <div class="hero-subtitle">
-            Learn smarter • Practice better • Plan your career
-        </div>
-
-        <div class="creator">
-            Built with Python, NLP, Scikit-learn & Streamlit
-            &nbsp;•&nbsp;
-            Created by <b>Palak Saxena</b>
-        </div>
-
     </div>
     """,
     unsafe_allow_html=True
