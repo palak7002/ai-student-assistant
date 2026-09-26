@@ -7,9 +7,10 @@ from chatbot import get_response
 # =========================================================
 
 st.set_page_config(
-    page_title="AI Student Assistant",
+    page_title="AI Student Assistant | Palak Saxena",
     page_icon="🤖",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
 
@@ -20,27 +21,168 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-.main-title {
-    font-size: 42px;
-    font-weight: 700;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
 }
 
-.subtitle {
-    font-size: 18px;
-    opacity: 0.75;
+/* Main background */
+.stApp {
+    background:
+        radial-gradient(circle at 10% 10%, rgba(99,102,241,0.10), transparent 25%),
+        radial-gradient(circle at 90% 10%, rgba(14,165,233,0.08), transparent 25%),
+        linear-gradient(135deg, #0f172a 0%, #111827 50%, #0f172a 100%);
+}
+
+/* Header */
+.hero {
+    padding: 30px 35px;
+    border-radius: 24px;
     margin-bottom: 25px;
+    background: linear-gradient(
+        135deg,
+        rgba(99,102,241,0.22),
+        rgba(14,165,233,0.12)
+    );
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.20);
 }
 
-.card {
-    padding: 22px;
-    border-radius: 15px;
-    border: 1px solid rgba(128,128,128,0.25);
-    background: rgba(128,128,128,0.08);
+.hero-logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    background: linear-gradient(135deg, #6366f1, #06b6d4);
+    box-shadow: 0 10px 25px rgba(99,102,241,0.35);
     margin-bottom: 15px;
 }
 
-.card h3 {
-    margin-top: 0;
+.hero-title {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+}
+
+.hero-subtitle {
+    font-size: 17px;
+    opacity: 0.75;
+    margin-bottom: 15px;
+}
+
+.creator {
+    font-size: 14px;
+    opacity: 0.70;
+}
+
+/* Cards */
+.feature-card {
+    padding: 22px;
+    min-height: 145px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(255,255,255,0.10);
+    transition: 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99,102,241,0.45);
+    background: rgba(255,255,255,0.08);
+}
+
+.feature-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.feature-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.feature-text {
+    font-size: 14px;
+    opacity: 0.70;
+}
+
+/* Section headings */
+.section-title {
+    font-size: 27px;
+    font-weight: 750;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    opacity: 0.68;
+    margin-bottom: 20px;
+}
+
+/* About */
+.about-card {
+    padding: 28px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(255,255,255,0.10);
+    line-height: 1.7;
+}
+
+/* Roadmap */
+.roadmap-card {
+    padding: 20px;
+    border-radius: 17px;
+    margin-bottom: 12px;
+    background: rgba(255,255,255,0.045);
+    border-left: 4px solid #6366f1;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 25px 10px 10px;
+    margin-top: 40px;
+    opacity: 0.55;
+    font-size: 13px;
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background: rgba(15,23,42,0.96);
+    border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar-title {
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.sidebar-text {
+    font-size: 13px;
+    opacity: 0.65;
+    line-height: 1.6;
+}
+
+/* Buttons */
+.stButton > button {
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+/* Tabs */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 8px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: 10px;
+    padding: 10px 18px;
 }
 
 </style>
@@ -67,60 +209,143 @@ if "quiz_question" not in st.session_state:
 
 with st.sidebar:
 
-    st.title("🤖 AI Student Assistant")
+    st.markdown(
+        '<div class="sidebar-title">🤖 AI Student Assistant</div>',
+        unsafe_allow_html=True
+    )
 
-    st.write(
-        "Your personal learning companion for "
-        "BCA and Artificial Intelligence."
+    st.markdown(
+        '<div class="sidebar-text">'
+        'Your personal AI-powered learning companion for '
+        'BCA and Artificial Intelligence students.'
+        '</div>',
+        unsafe_allow_html=True
     )
 
     st.divider()
 
-    st.markdown("### 📌 Features")
+    st.markdown("### ✨ Features")
 
-    st.write("🤖 AI Chatbot")
-    st.write("📚 Study Planner")
-    st.write("📝 AI/Programming Quiz")
-    st.write("🎯 Career Roadmap")
+    st.markdown("🤖 **AI Chatbot**")
+    st.markdown("📚 **Study Planner**")
+    st.markdown("📝 **Interactive Quiz**")
+    st.markdown("🎯 **Career Roadmap**")
 
     st.divider()
+
+    st.markdown("### 👩‍💻 Created By")
+
+    st.markdown("**Palak Saxena**")
+    st.caption("BCA Artificial Intelligence Student")
+
+    st.divider()
+
+    st.link_button(
+        "🐙 View GitHub Project",
+        "https://github.com/palak7002/ai-student-assistant",
+        use_container_width=True
+    )
 
     if st.button(
         "🧹 Clear Chat",
         use_container_width=True
     ):
-
         st.session_state.messages = []
-
         st.rerun()
 
 
 # =========================================================
-# HEADER
+# HERO HEADER
 # =========================================================
 
-st.markdown(
-    '<div class="main-title">🤖 AI Student Assistant</div>',
-    unsafe_allow_html=True
-)
+st.markdown("""
+<div class="hero">
 
-st.markdown(
-    '<div class="subtitle">'
-    'Learn • Practice • Plan • Build'
-    '</div>',
-    unsafe_allow_html=True
-)
+    <div class="hero-logo">
+        🤖
+    </div>
+
+    <div class="hero-title">
+        AI Student Assistant
+    </div>
+
+    <div class="hero-subtitle">
+        Learn smarter • Practice better • Plan your career
+    </div>
+
+    <div class="creator">
+        Built with Python, NLP, Scikit-learn & Streamlit
+        &nbsp;•&nbsp; Created by <b>Palak Saxena</b>
+    </div>
+
+</div>
+""", unsafe_allow_html=True)
+
+
+# =========================================================
+# FEATURE CARDS
+# =========================================================
+
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    st.markdown("""
+    <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-title">AI Chatbot</div>
+        <div class="feature-text">
+            Ask questions about Python, AI, ML, DSA, SQL and more.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.markdown("""
+    <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <div class="feature-title">Study Planner</div>
+        <div class="feature-text">
+            Create a simple study plan based on your subjects and time.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col3:
+    st.markdown("""
+    <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <div class="feature-title">Quiz</div>
+        <div class="feature-text">
+            Test your knowledge with beginner-friendly questions.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col4:
+    st.markdown("""
+    <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-title">Career Roadmap</div>
+        <div class="feature-text">
+            Follow a structured path from programming to internships.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+
+st.write("")
 
 
 # =========================================================
 # TABS
 # =========================================================
 
-chat_tab, planner_tab, quiz_tab, career_tab = st.tabs([
+chat_tab, planner_tab, quiz_tab, career_tab, about_tab = st.tabs([
     "🤖 AI Chatbot",
     "📚 Study Planner",
     "📝 Quiz",
-    "🎯 Career Roadmap"
+    "🎯 Career Roadmap",
+    "ℹ️ About"
 ])
 
 
@@ -130,15 +355,18 @@ chat_tab, planner_tab, quiz_tab, career_tab = st.tabs([
 
 with chat_tab:
 
-    st.subheader("💬 Ask your AI Student Assistant")
-
-    st.write(
-        "Ask questions about Python, AI, Machine Learning, "
-        "DSA, SQL, internships or projects."
+    st.markdown(
+        '<div class="section-title">💬 Ask your AI Assistant</div>',
+        unsafe_allow_html=True
     )
 
-
-    # Display previous messages
+    st.markdown(
+        '<div class="section-subtitle">'
+        'Get help with programming, AI, Machine Learning, DSA, SQL, '
+        'internships and student projects.'
+        '</div>',
+        unsafe_allow_html=True
+    )
 
     for message in st.session_state.messages:
 
@@ -146,16 +374,11 @@ with chat_tab:
             message["role"],
             avatar="👤" if message["role"] == "user" else "🤖"
         ):
-
             st.markdown(message["content"])
 
-
-    # Chat input
-
     user_input = st.chat_input(
-        "Ask your question..."
+        "Ask something like: What is Python?"
     )
-
 
     if user_input:
 
@@ -164,29 +387,23 @@ with chat_tab:
             "content": user_input
         })
 
-
         with st.chat_message(
             "user",
             avatar="👤"
         ):
-
             st.markdown(user_input)
 
-
         response = get_response(user_input)
-
 
         st.session_state.messages.append({
             "role": "assistant",
             "content": response
         })
 
-
         with st.chat_message(
             "assistant",
             avatar="🤖"
         ):
-
             st.markdown(response)
 
 
@@ -196,35 +413,40 @@ with chat_tab:
 
 with planner_tab:
 
-    st.subheader("📚 Create Your Study Plan")
-
-    st.write(
-        "Enter your subjects and available study time "
-        "to create a simple daily study plan."
+    st.markdown(
+        '<div class="section-title">📚 Smart Study Planner</div>',
+        unsafe_allow_html=True
     )
 
+    st.markdown(
+        '<div class="section-subtitle">'
+        'Create a simple daily study plan according to your subjects and available time.'
+        '</div>',
+        unsafe_allow_html=True
+    )
 
     subjects = st.text_input(
         "Subjects",
         placeholder="Example: Python, SQL, DSA, AI"
     )
 
+    col1, col2 = st.columns(2)
 
-    hours = st.number_input(
-        "Available study hours per day",
-        min_value=1,
-        max_value=12,
-        value=3
-    )
+    with col1:
+        hours = st.number_input(
+            "Study hours per day",
+            min_value=1,
+            max_value=12,
+            value=3
+        )
 
-
-    exam_days = st.number_input(
-        "Days until your exam",
-        min_value=1,
-        max_value=365,
-        value=30
-    )
-
+    with col2:
+        exam_days = st.number_input(
+            "Days until exam",
+            min_value=1,
+            max_value=365,
+            value=30
+        )
 
     if st.button(
         "📅 Generate Study Plan",
@@ -232,10 +454,7 @@ with planner_tab:
     ):
 
         if subjects.strip() == "":
-
-            st.warning(
-                "Please enter at least one subject."
-            )
+            st.warning("Please enter at least one subject.")
 
         else:
 
@@ -245,20 +464,15 @@ with planner_tab:
                 if subject.strip()
             ]
 
-
             st.success(
                 f"Study plan created for {len(subject_list)} subjects!"
             )
 
-
             st.info(
-                f"You have approximately "
-                f"**{exam_days} days** before your exam."
+                f"You have approximately **{exam_days} days** before your exam."
             )
 
-
             time_per_subject = hours / len(subject_list)
-
 
             for index, subject in enumerate(
                 subject_list,
@@ -267,28 +481,18 @@ with planner_tab:
 
                 st.markdown(
                     f"""
-                    <div class="card">
-
-                    <h3>{index}. {subject}</h3>
-
-                    <p>
-                    ⏱️ Suggested time:
-                    <b>{time_per_subject:.1f} hours</b>
-                    </p>
-
-                    <p>
-                    📖 Learn → Practice → Revise
-                    </p>
-
+                    <div class="roadmap-card">
+                        <h3>{index}. {subject}</h3>
+                        <p>⏱️ Suggested time:
+                        <b>{time_per_subject:.1f} hours</b></p>
+                        <p>📖 Learn → Practice → Revise</p>
                     </div>
                     """,
                     unsafe_allow_html=True
                 )
 
-
             st.success(
-                "💡 Tip: Keep the final 20–25% of your "
-                "study time for revision and practice."
+                "💡 Tip: Keep the final 20–25% of your study time for revision."
             )
 
 
@@ -298,12 +502,17 @@ with planner_tab:
 
 with quiz_tab:
 
-    st.subheader("📝 Test Your Knowledge")
-
-    st.write(
-        "Answer these beginner-level AI and programming questions."
+    st.markdown(
+        '<div class="section-title">📝 Test Your Knowledge</div>',
+        unsafe_allow_html=True
     )
 
+    st.markdown(
+        '<div class="section-subtitle">'
+        'Test your understanding of AI and programming fundamentals.'
+        '</div>',
+        unsafe_allow_html=True
+    )
 
     quiz_questions = [
 
@@ -364,22 +573,13 @@ with quiz_tab:
 
     ]
 
-
-    # Reset quiz button
-
     if st.button("🔄 Restart Quiz"):
 
         st.session_state.quiz_score = 0
-
         st.session_state.quiz_question = 0
-
         st.rerun()
 
-
     question_index = st.session_state.quiz_question
-
-
-    # Quiz completed
 
     if question_index >= len(quiz_questions):
 
@@ -395,51 +595,35 @@ with quiz_tab:
             / len(quiz_questions)
         ) * 100
 
-
-        st.progress(
-            int(percentage)
-        )
-
+        st.progress(int(percentage))
 
         if percentage >= 80:
-
             st.balloons()
-
-            st.success(
-                "Excellent work! Keep practicing."
-            )
+            st.success("Excellent work! Keep practicing.")
 
         elif percentage >= 50:
-
             st.info(
-                "Good attempt. Revise the topics "
-                "you found difficult."
+                "Good attempt. Revise the topics you found difficult."
             )
 
         else:
-
             st.warning(
                 "Keep learning and try the quiz again!"
             )
 
-
     else:
 
-        current_question = quiz_questions[
-            question_index
-        ]
-
+        current_question = quiz_questions[question_index]
 
         st.markdown(
-            f"### Question {question_index + 1} "
-            f"of {len(quiz_questions)}"
+            f"### Question {question_index + 1} of {len(quiz_questions)}"
         )
 
-
-        st.write(
-            current_question["question"]
+        st.progress(
+            question_index / len(quiz_questions)
         )
 
+        st.write(current_question["question"])
 
         selected_answer = st.radio(
             "Choose your answer:",
@@ -447,16 +631,12 @@ with quiz_tab:
             key=f"question_{question_index}"
         )
 
-
         if st.button(
             "Submit Answer",
             use_container_width=True
         ):
 
-            if (
-                selected_answer
-                == current_question["answer"]
-            ):
+            if selected_answer == current_question["answer"]:
 
                 st.success("✅ Correct!")
 
@@ -466,13 +646,10 @@ with quiz_tab:
 
                 st.error(
                     "❌ Incorrect. "
-                    f"Correct answer: "
-                    f"{current_question['answer']}"
+                    f"Correct answer: {current_question['answer']}"
                 )
 
-
             st.session_state.quiz_question += 1
-
             st.rerun()
 
 
@@ -482,78 +659,157 @@ with quiz_tab:
 
 with career_tab:
 
-    st.subheader("🎯 BCA AI Career Roadmap")
-
-    st.write(
-        "A simple learning path for a student "
-        "interested in AI and technology."
+    st.markdown(
+        '<div class="section-title">🎯 BCA AI Career Roadmap</div>',
+        unsafe_allow_html=True
     )
 
+    st.markdown(
+        '<div class="section-subtitle">'
+        'A structured learning path for students interested in AI and technology.'
+        '</div>',
+        unsafe_allow_html=True
+    )
 
     roadmap = [
 
         (
             "1️⃣ Programming",
-            "Learn Python fundamentals, functions, "
-            "OOP and problem solving."
+            "Learn Python fundamentals, functions, OOP and problem solving."
         ),
 
         (
             "2️⃣ DSA",
-            "Learn arrays, strings, linked lists, "
-            "stacks, queues, trees and searching."
+            "Learn arrays, strings, linked lists, stacks, queues, trees and searching."
         ),
 
         (
             "3️⃣ SQL",
-            "Learn databases, SELECT, JOIN, GROUP BY, "
-            "subqueries and basic database design."
+            "Learn databases, SELECT, JOIN, GROUP BY, subqueries and database basics."
         ),
 
         (
             "4️⃣ Data Analysis",
-            "Learn NumPy, Pandas, Matplotlib "
-            "and exploratory data analysis."
+            "Learn NumPy, Pandas, Matplotlib and exploratory data analysis."
         ),
 
         (
             "5️⃣ Machine Learning",
-            "Learn regression, classification, "
-            "clustering and model evaluation."
+            "Learn regression, classification, clustering and model evaluation."
         ),
 
         (
             "6️⃣ Projects",
-            "Build 2–4 projects and upload them "
-            "to GitHub with proper documentation."
+            "Build 2–4 practical projects and document them on GitHub."
         ),
 
         (
             "7️⃣ Resume",
-            "Create an ATS-friendly resume with "
-            "skills, projects and certificates."
+            "Create an ATS-friendly resume with skills, projects and certificates."
         ),
 
         (
             "8️⃣ Internship",
-            "Apply regularly and prepare to "
-            "explain your projects clearly."
+            "Apply regularly and prepare to explain your projects clearly."
         )
 
     ]
-
 
     for title, description in roadmap:
 
         st.markdown(
             f"""
-            <div class="card">
-
-            <h3>{title}</h3>
-
-            <p>{description}</p>
-
+            <div class="roadmap-card">
+                <h3>{title}</h3>
+                <p>{description}</p>
             </div>
             """,
             unsafe_allow_html=True
         )
+
+
+# =========================================================
+# TAB 5 — ABOUT
+# =========================================================
+
+with about_tab:
+
+    st.markdown(
+        '<div class="section-title">ℹ️ About This Project</div>',
+        unsafe_allow_html=True
+    )
+
+    st.markdown("""
+    <div class="about-card">
+
+    <h2>🤖 AI Student Assistant</h2>
+
+    <p>
+    AI Student Assistant is an AI-powered learning companion designed
+    for students who are learning programming, Artificial Intelligence
+    and technology.
+    </p>
+
+    <p>
+    The application uses <b>Python, Natural Language Processing,
+    TF-IDF, Cosine Similarity, Scikit-learn and Streamlit</b>
+    to understand student questions and provide relevant responses.
+    </p>
+
+    <h3>✨ What can it do?</h3>
+
+    <p>
+    • Answer student questions<br>
+    • Help with Python, AI, ML, DSA and SQL<br>
+    • Generate a simple study plan<br>
+    • Test programming and AI knowledge<br>
+    • Provide a BCA AI career roadmap
+    </p>
+
+    <h3>🛠️ Technologies</h3>
+
+    <p>
+    Python • NLP • Scikit-learn • TF-IDF • Cosine Similarity •
+    JSON • Streamlit
+    </p>
+
+    <h3>👩‍💻 Developer</h3>
+
+    <p>
+    <b>Palak Saxena</b><br>
+    BCA Artificial Intelligence Student
+    </p>
+
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.write("")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.link_button(
+            "🐙 View GitHub Repository",
+            "https://github.com/palak7002/ai-student-assistant",
+            use_container_width=True
+        )
+
+    with col2:
+        st.link_button(
+            "💻 View My GitHub Profile",
+            "https://github.com/palak7002",
+            use_container_width=True
+        )
+
+
+# =========================================================
+# FOOTER
+# =========================================================
+
+st.markdown("""
+<div class="footer">
+    Built with ❤️ using Python & Streamlit
+    <br>
+    © 2026 Palak Saxena • AI Student Assistant
+</div>
+""", unsafe_allow_html=True)
