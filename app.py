@@ -403,8 +403,6 @@ with quiz_tab:
 
         if percentage >= 80:
 
-            st.balloons()
-
             st.success(
                 "Excellent work! Keep practicing."
             )
